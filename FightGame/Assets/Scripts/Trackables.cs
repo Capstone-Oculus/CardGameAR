@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
-using System.Collections;
 using Vuforia;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
@@ -13,6 +10,7 @@ using System.Linq;
 
 public class Trackables : MonoBehaviour {
     Dictionary<string, int> map = new Dictionary<string, int>();
+    public GameObject[] cards;
     public Text WinText;
     bool showWin = false;
     private Rect mButtonRect = new Rect(200, 200, 400, 600);
