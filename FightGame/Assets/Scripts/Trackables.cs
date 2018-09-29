@@ -8,21 +8,14 @@ using System.Linq;
 
 
 
-public class Trackables : MonoBehaviour {
-    Dictionary<string, int> map = new Dictionary<string, int>();
-    public GameObject[] cards;
-    public Text WinText;
+public class Trackables : MonoBehaviour
+{
     bool showWin = false;
     private Rect mButtonRect = new Rect(200, 200, 400, 600);
     private string winner = "";
-    void Start() {
-        for (int i = 1; i <= 10; i++) {
-            map.Add("card" + i, i);
-        }
-        map.Add("cardJ", 11);
-        map.Add("cardQ", 12);
-        map.Add("cardK", 12);
-        map.Add("cardA", 14);
+    void Start()
+    {
+
     }
     // Update is called once per frame
     void Update()
@@ -35,7 +28,8 @@ public class Trackables : MonoBehaviour {
         //(i.e. the ones currently being tracked by Vuforia)
         IEnumerable<TrackableBehaviour> activeTrackables = sm.GetActiveTrackableBehaviours();
 
-        if (activeTrackables.Count() < 2) {
+        if (activeTrackables.Count() < 2)
+        {
             showWin = false;
             return;
         }
@@ -43,17 +37,15 @@ public class Trackables : MonoBehaviour {
         int max = -1;
         winner = "";
         // Iterate through the list of active trackables
-        //Debug.Log("List of trackables currently active (tracked): ");
         foreach (TrackableBehaviour tb in activeTrackables)
         {
-            int score;
-            if (map.TryGetValue(tb.TrackableName, out score)) {
-                if (max < score) {
-                    max = score;
-                    winner = tb.TrackableName;
-                }
+            int score = tb.GetComponent<Card>().value;
+            if (max < score)
+            {
+                max = score;
+                winner = tb.TrackableName;
             }
-            Debug.Log("Trackable: " + tb.TrackableName);
+
         }
         showWin = true;
     }
