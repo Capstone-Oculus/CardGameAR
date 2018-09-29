@@ -1,17 +1,21 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Trackables.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Card10.cs">
     <Files>
-      <File FileName="Assets/Scripts/Trackables.cs" Line="24" Column="30" />
-      <File FileName="Assets/Models/UnityChan/Scripts/IdleChanger.cs" Line="61" Column="4" />
-      <File FileName="Assets/Models/UnityChan/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="194" Column="60" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="10" Column="3" />
+      <File FileName="../../../../Roll a Ball/Assets/Scripts/PlayerController.cs" Line="16" Column="19" />
+      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="30" Column="43" />
+      <File FileName="Assets/Scripts/Card10.cs" Line="93" Column="1" />
+      <File FileName="Assets/Scripts/Trackables.cs" Line="45" Column="18" />
+      <File FileName="Assets/Scripts/Card.cs" Line="25" Column="9" />
       <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/shabnam/Projects/GH/Senior/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
