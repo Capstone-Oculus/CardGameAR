@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Game Jam Template/Scripts/Menu/StartOptions.cs">
+    <Files>
+      <File FileName="Assets/Scripts/health.cs" Line="19" Column="106" />
+      <File FileName="Assets/yas.cs" Line="4" Column="35" />
+      <File FileName="Assets/Game Jam Template/Scripts/Menu/StartOptions.cs" Line="8" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
