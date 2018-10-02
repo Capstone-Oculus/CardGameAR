@@ -7,7 +7,7 @@ public class Health : MonoBehaviour {
 
     public int health;
     public int numOfHearts;
-
+    public GameObject player;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
