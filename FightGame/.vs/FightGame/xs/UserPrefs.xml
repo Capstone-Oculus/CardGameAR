@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Game Jam Template/Scripts/FlexibleUI/FlexibleUIText.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Attack.cs">
     <Files>
       <File FileName="Assets/Scripts/Card.cs" Line="210" Column="1" />
-      <File FileName="../FightGame copy/Assets/Scripts/Card.cs" Line="175" Column="39" />
       <File FileName="Assets/Scripts/PhotonConnect.cs" Line="12" Column="43" />
-      <File FileName="../FightGame copy/Assets/Scripts/PhotonConnect.cs" Line="12" Column="31" />
       <File FileName="Assets/Game Jam Template/Scripts/FlexibleUI/FlexibleUIText.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="16" Column="32" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="6" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/shabnam/Projects/GH/Senior/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
+      <Breakpoint file="/Users/epark/Grace-Hopper/1807-Senior/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
