@@ -19,6 +19,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] p1Hearts;
     public GameObject[] p2Hearts;
 
+    public GameObject Round1;
+    public GameObject Round2;
+    public GameObject Round3;
+    public GameObject Round4;
+    public GameObject Round5;
+
+
+
+
     void Update()
     {
         if (P1Life <= 0)
@@ -32,6 +41,66 @@ public class GameManager : MonoBehaviour
             player2.SetActive(false);
             p1Wins.SetActive(true); //turn on our gameover screen
         }
+
+        if (P1Life + P2Life == 6)
+        {
+
+            Round1.SetActive(true);
+ 
+        }
+
+        if (P1Life + P2Life == 5)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 4)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 3)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 2)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(false);
+            Round5.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 1)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(false);
+            Round5.SetActive(false);
+
+        }
+
+
+
+
     }
 
     // methods that will do damage to players (connect this to losing card or player)
@@ -46,7 +115,9 @@ public class GameManager : MonoBehaviour
             if (P1Life > i)
             {
                 p1Hearts[i].SetActive(true); // can see heart
-            } else {
+            }
+            else
+            {
                 p1Hearts[i].SetActive(false); // turn off heart after damage
             }
         }
@@ -61,9 +132,15 @@ public class GameManager : MonoBehaviour
             if (P2Life > i)
             {
                 p2Hearts[i].SetActive(true);
-            } else {
+            }
+            else
+            {
                 p2Hearts[i].SetActive(false);
             }
         }
     }
+
+
+
+
 }
