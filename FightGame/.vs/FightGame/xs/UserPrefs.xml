@@ -5,22 +5,19 @@
       <File FileName="Assets/Scripts/Trackables.cs" Line="41" Column="55" NotebookId="1" />
       <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" NotebookId="1" />
       <File FileName="Assets/Scripts/Card.cs" Line="259" Column="2" NotebookId="1" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="28" Column="10" NotebookId="1" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="70" Column="19" NotebookId="1" />
       <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" NotebookId="1" />
       <File FileName="Assets/Scripts/RoomManager.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/FightManager.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/DropMe.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/DragPanel.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/DragMe.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Attack.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="39" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="5" NotebookId="1" />
-      <File FileName="Assets/Scripts/PlayerManager.cs" Line="9" Column="3" NotebookId="1" />
+      <File FileName="Assets/meshsmithAnim.cs" Line="24" Column="9" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="1063" Y="1122" Width="640" Height="480">
+      <FloatingWindow WindowId="1" X="659" Y="1122" Width="1044" Height="607">
         <Files>
-          <File FileName="Assets/Scripts/ZombieAnimation.cs" Line="18" Column="34" />
+          <File FileName="Assets/Scripts/ZombieAnimation.cs" Line="8" Column="23" />
           <File FileName="../../AR-Desk-Arena/ARDeskArena/Assets/EnemyAnimController.cs" Line="21" Column="5" />
         </Files>
       </FloatingWindow>
