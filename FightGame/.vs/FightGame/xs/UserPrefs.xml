@@ -1,27 +1,19 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Trackables.cs" Line="41" Column="55" NotebookId="1" />
-      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" NotebookId="1" />
-      <File FileName="Assets/Scripts/Card.cs" Line="259" Column="2" NotebookId="1" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="70" Column="19" NotebookId="1" />
-      <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" NotebookId="1" />
-      <File FileName="Assets/Scripts/RoomManager.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/FightManager.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Attack.cs" Line="39" Column="2" NotebookId="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="5" NotebookId="1" />
-      <File FileName="Assets/meshsmithAnim.cs" Line="24" Column="9" NotebookId="1" />
+      <File FileName="Assets/Scripts/Trackables.cs" Line="41" Column="55" />
+      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" />
+      <File FileName="Assets/Scripts/Card.cs" Line="259" Column="2" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="70" Column="19" />
+      <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" />
+      <File FileName="Assets/Scripts/RoomManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FightManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="39" Column="2" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="5" />
+      <File FileName="Assets/meshsmithAnim.cs" Line="24" Column="9" />
     </Files>
-    <FloatingWindows>
-      <FloatingWindow WindowId="1" X="659" Y="1122" Width="1044" Height="607">
-        <Files>
-          <File FileName="Assets/Scripts/ZombieAnimation.cs" Line="8" Column="23" />
-          <File FileName="../../AR-Desk-Arena/ARDeskArena/Assets/EnemyAnimController.cs" Line="21" Column="5" />
-        </Files>
-      </FloatingWindow>
-    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
