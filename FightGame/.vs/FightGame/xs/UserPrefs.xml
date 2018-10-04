@@ -1,23 +1,35 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../FightGame copy/Assets/Scripts/Card.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
     <Files>
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" Line="1" Column="1" />
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Trackables.cs" Line="41" Column="55" />
-      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" />
-      <File FileName="Assets/Scripts/Card.cs" Line="259" Column="2" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="59" Column="1" />
-      <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" />
-      <File FileName="../FightGame copy/Assets/Scripts/ScoreManager.cs" Line="59" Column="1" />
-      <File FileName="../FightGame copy/Assets/Scripts/Card.cs" Line="259" Column="2" />
+      <File FileName="Assets/Scripts/Trackables.cs" Line="41" Column="55" NotebookId="1" />
+      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" NotebookId="1" />
+      <File FileName="Assets/Scripts/Card.cs" Line="259" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="28" Column="10" NotebookId="1" />
+      <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" NotebookId="1" />
+      <File FileName="Assets/Scripts/RoomManager.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/FightManager.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/DropMe.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/DragPanel.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/DragMe.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="5" NotebookId="1" />
+      <File FileName="Assets/Scripts/PlayerManager.cs" Line="9" Column="3" NotebookId="1" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="1063" Y="1122" Width="640" Height="480">
+        <Files>
+          <File FileName="Assets/Scripts/ZombieAnimation.cs" Line="18" Column="34" />
+          <File FileName="../../AR-Desk-Arena/ARDeskArena/Assets/EnemyAnimController.cs" Line="21" Column="5" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/shabnam/Projects/GH/Senior/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
+      <Breakpoint file="/Users/nat/Desktop/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
