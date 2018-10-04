@@ -15,7 +15,6 @@ public class Trackables : MonoBehaviour
     private string winner = "";
     void Start()
     {
-
     }
     // Update is called once per frame
     void Update()
@@ -45,7 +44,6 @@ public class Trackables : MonoBehaviour
                 max = score;
                 winner = tb.TrackableName;
             }
-
         }
         showWin = true;
     }

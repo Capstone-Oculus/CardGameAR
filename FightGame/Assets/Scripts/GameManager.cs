@@ -1,17 +1,146 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //public GameObject playerPrefab;
+    //public PlayerManager[] players;
+    public GameObject player1;
+    public GameObject player2;
+
+    public int P1Life; // int = whole numbers
+    public int P2Life;
+
+    public GameObject p1Wins;
+    public GameObject p2Wins;
+
+    public GameObject[] p1Hearts;
+    public GameObject[] p2Hearts;
+
+    public GameObject Round1;
+    public GameObject Round2;
+    public GameObject Round3;
+    public GameObject Round4;
+    public GameObject Round5;
+
+
+
+
+    void Update()
+    {
+        if (P1Life <= 0)
+        {
+            player1.SetActive(false);
+            p2Wins.SetActive(true); //turn on our gameover screen
+        }
+
+        if (P2Life <= 0)
+        {
+            player2.SetActive(false);
+            p1Wins.SetActive(true); //turn on our gameover screen
+        }
+
+        if (P1Life + P2Life == 6)
+        {
+
+            Round1.SetActive(true);
+ 
+        }
+
+        if (P1Life + P2Life == 5)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 4)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 3)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 2)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(false);
+            Round5.SetActive(true);
+
+        }
+
+        if (P1Life + P2Life == 1)
+        {
+
+            Round1.SetActive(false);
+            Round2.SetActive(false);
+            Round3.SetActive(false);
+            Round4.SetActive(false);
+            Round5.SetActive(false);
+
+        }
+
+
+
+
+    }
+
+    // methods that will do damage to players (connect this to losing card or player)
+    // whenever this function is called (called by losing card)
+    public void HurtP1()
+    {
+        P1Life -= 1;
+
+        // loop thru the array and one by one decide whether to turn on or off heart
+        for (int i = 0; i < p1Hearts.Length; i++)
+        {
+            if (P1Life > i)
+            {
+                p1Hearts[i].SetActive(true); // can see heart
+            }
+            else
+            {
+                p1Hearts[i].SetActive(false); // turn off heart after damage
+            }
+        }
+    }
+
+    public void HurtP2()
+    {
+        P2Life -= 1;
+
+        for (int i = 0; i < p2Hearts.Length; i++)
+        {
+            if (P2Life > i)
+            {
+                p2Hearts[i].SetActive(true);
+            }
+            else
+            {
+                p2Hearts[i].SetActive(false);
+            }
+        }
+    }
+
+
+
+
 }
