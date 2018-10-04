@@ -5,7 +5,8 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.AI;
 
-public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
+public class Card : Photon.MonoBehaviour, ITrackableEventHandler
+{
     private NavMeshAgent agent;
     public GameObject markerGoal;
     public int value;
@@ -14,6 +15,8 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
     protected TrackableBehaviour mTrackableBehaviour;
 
     private bool updated = false;
+    private bool visible = false;
+    private string enemyCard = "";
 
     protected virtual void OnDestroy()
     {
@@ -118,8 +121,8 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
     }
 
     public void OnTrackableStateChanged(
-    TrackableBehaviour.Status previousStatus,
-    TrackableBehaviour.Status newStatus)
+        TrackableBehaviour.Status previousStatus,
+        TrackableBehaviour.Status newStatus)
     {
         if (newStatus == TrackableBehaviour.Status.DETECTED ||
             newStatus == TrackableBehaviour.Status.TRACKED ||
@@ -160,6 +163,9 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+        visible = true;
+        Debug.Log("enemy " + enemyCard + " visible " + visible);
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setMe(this.gameObject);
         photonView.RPC("ChangeCardState", PhotonTargets.Others, mTrackableBehaviour.TrackableName, true);
     }
 
@@ -181,14 +187,18 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-
+        visible = false;
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setMe(null);
         photonView.RPC("ChangeCardState", PhotonTargets.Others, mTrackableBehaviour.TrackableName, false);
     }
 
     [PunRPC]
     void ChangeCardState(string card, bool show, PhotonMessageInfo info)
     {
+        enemyCard = card;
         var enemy = GameObject.Find(card);
+        Debug.Log("enemy " + enemyCard + " visible " + visible);
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setEnemy(show ? enemy : null);
 
         var rendererComponents = enemy.GetComponentsInChildren<Renderer>(true);
         var colliderComponents = enemy.GetComponentsInChildren<Collider>(true);
@@ -209,7 +219,6 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler {
 
         Debug.Log("Show card " + card + " show " + show + " local " + info.sender.IsLocal + " info " + info);
     }
-
 
     //void FixedUpdate() {
     //    float moveHorizontal = Input.GetAxis("Horizontal");
