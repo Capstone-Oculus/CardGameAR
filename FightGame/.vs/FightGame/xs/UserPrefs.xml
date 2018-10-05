@@ -1,27 +1,27 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Models/UnityChan/Scripts/IdleChanger.cs">
     <Files>
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" Line="1" Column="1" />
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Trackables.cs" Line="1" Column="1" />
       <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="21" Column="1" />
-      <File FileName="../FightGame copy/Assets/Scripts/Health.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="125" Column="63" />
-      <File FileName="../FightGame copy/Assets/Models/UnityChan/Scripts/CameraController.cs" Line="6" Column="1" />
-      <File FileName="Assets/Scripts/Trackables.cs" Line="31" Column="12" />
-      <File FileName="../FightGame copy/Assets/Scripts/ScoreManager.cs" Line="163" Column="1" />
-      <File FileName="../FightGame copy/Assets/Scripts/Card.cs" Line="191" Column="25" />
+      <File FileName="Assets/Scripts/Card.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Health.cs" Line="17" Column="27" />
+      <File FileName="Assets/Scripts/RoomManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FightManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Fight.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="39" Column="2" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/PlayerObject.cs" Line="28" Column="1" />
+      <File FileName="Assets/Models/UnityChan/Scripts/IdleChanger.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/shabnam/Projects/GH/Senior/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
+      <Breakpoint file="/Users/nat/Desktop/CardGameAR/FightGame/Assets/Fight.cs" relfile="Assets/Fight.cs" line="14" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>
