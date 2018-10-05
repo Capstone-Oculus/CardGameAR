@@ -187,6 +187,7 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
         visible = false;
         GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setMe(null);
         photonView.RPC("ChangeCardState", PhotonTargets.Others, mTrackableBehaviour.TrackableName, false);
@@ -215,7 +216,6 @@ public class Card : Photon.MonoBehaviour, ITrackableEventHandler
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = show;
-        enemy.transform.localPosition = new Vector3(0, -1, 2);
 
         Debug.Log("Show card " + card + " show " + show + " local " + info.sender.IsLocal + " info " + info);
     }
