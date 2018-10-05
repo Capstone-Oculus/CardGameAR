@@ -60,6 +60,14 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    private void attack(GameObject player)
+    {
+        foreach (Transform child in player.transform) 
+        {
+            child.gameObject.GetComponent<Animator>().Play("attack");
+        }
+    }
+
     public void maybeChooseWinner()
     {
         if (enemy == null || me == null || gameOver)
@@ -101,6 +109,7 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("You are looser!");
             myHealth.health--;
+            attack(enemy);
             kill(me);
             if (myHealth.health == 0)
             {
@@ -111,6 +120,7 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("You are winner!");
             kill(enemy);
+            attack(me);
             enemeyHealth.health--;
             if (enemeyHealth.health == 0)
             {
