@@ -2,21 +2,68 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 using UnityEngine.AI;
 
-public class Card : MonoBehaviour {
+public class Card : Photon.MonoBehaviour, ITrackableEventHandler
+{
     private NavMeshAgent agent;
     public GameObject markerGoal;
     public int value;
     //parent position
     Vector3 parentPos;
+    protected TrackableBehaviour mTrackableBehaviour;
+
+    private bool updated = false;
+    private bool visible = false;
+    private string enemyCard = "";
+
+    protected virtual void OnDestroy()
+    {
+        if (mTrackableBehaviour)
+            mTrackableBehaviour.UnregisterTrackableEventHandler(this);
+    }
 
     // Use this for initialization
     void Start()
     {
+        mTrackableBehaviour = GetComponent<TrackableBehaviour>();
+        if (mTrackableBehaviour)
+            mTrackableBehaviour.RegisterTrackableEventHandler(this);
+
         agent = GetComponent<NavMeshAgent>();
         Debug.Log("Shabnam " + agent + " added " + markerGoal);
     }
+
+    //public void OnPhotonInstantiate(PhotonMessageInfo info)
+    //{
+    //    Debug.LogError("photo instance is " + info.sender.IsLocal);
+
+    //    if (info.sender.IsLocal) { return; }
+
+    //    Debug.Log("photon instantiated " + info);
+    //    Transform imageTargetTransform = GameObject.Find("ARCamera").transform;
+    //    gameObject.name = gameObject.name + "-photon-clone";
+    //    transform.parent = imageTargetTransform;
+    //    transform.localPosition = new Vector3(-0.3f, 0f, 0.3f);
+    //    transform.localRotation = Quaternion.identity;
+    //    transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+
+    //    transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+    //    gameObject.SetActive(true);
+    //    //transform.parent = imageTargetTransform;
+    //}
+
+    //public void InstantiateOnPhoton() {
+    //    var view = GetComponent<PhotonView>();
+    //    Debug.Log("view is " + view.isMine);
+    //    //if (view.isMine)
+    //    //{
+    //        var obj = gameObject;
+    //        PhotonNetwork.Instantiate(obj.name, obj.transform.position,
+    //                                  obj.transform.rotation, 0);
+    //    //}
+    //}
 
     void Update()
     {
@@ -73,6 +120,105 @@ public class Card : MonoBehaviour {
         }
     }
 
+    public void OnTrackableStateChanged(
+        TrackableBehaviour.Status previousStatus,
+        TrackableBehaviour.Status newStatus)
+    {
+        if (newStatus == TrackableBehaviour.Status.DETECTED ||
+            newStatus == TrackableBehaviour.Status.TRACKED ||
+            newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
+        {
+            Debug.Log("Card Trackable " + mTrackableBehaviour.TrackableName + " found");
+            OnTrackingFound();
+        }
+        else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
+                 newStatus == TrackableBehaviour.Status.NO_POSE)
+        {
+            Debug.Log("Card Trackable " + mTrackableBehaviour.TrackableName + " lost");
+            OnTrackingLost();
+        }
+        else
+        {
+            // For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
+            // Vuforia is starting, but tracking has not been lost or found yet
+            // Call OnTrackingLost() to hide the augmentations
+            OnTrackingLost();
+        }
+    }
+
+    protected virtual void OnTrackingFound()
+    {
+        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = GetComponentsInChildren<Collider>(true);
+        var canvasComponents = GetComponentsInChildren<Canvas>(true);
+
+        // Enable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = true;
+
+        // Enable colliders:
+        foreach (var component in colliderComponents)
+            component.enabled = true;
+
+        // Enable canvas':
+        foreach (var component in canvasComponents)
+            component.enabled = true;
+        visible = true;
+        Debug.Log("enemy " + enemyCard + " visible " + visible);
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setMe(this.gameObject);
+        photonView.RPC("ChangeCardState", PhotonTargets.Others, mTrackableBehaviour.TrackableName, true);
+    }
+
+
+    protected virtual void OnTrackingLost()
+    {
+        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = GetComponentsInChildren<Collider>(true);
+        var canvasComponents = GetComponentsInChildren<Canvas>(true);
+
+        // Disable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = false;
+
+        // Disable colliders:
+        foreach (var component in colliderComponents)
+            component.enabled = false;
+
+        // Disable canvas':
+        foreach (var component in canvasComponents)
+            component.enabled = false;
+
+        visible = false;
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setMe(null);
+        photonView.RPC("ChangeCardState", PhotonTargets.Others, mTrackableBehaviour.TrackableName, false);
+    }
+
+    [PunRPC]
+    void ChangeCardState(string card, bool show, PhotonMessageInfo info)
+    {
+        enemyCard = card;
+        var enemy = GameObject.Find(card);
+        Debug.Log("enemy " + enemyCard + " visible " + visible);
+        GameObject.Find("ScoreManager").GetComponent<ScoreManager>().setEnemy(show ? enemy : null);
+
+        var rendererComponents = enemy.GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = enemy.GetComponentsInChildren<Collider>(true);
+        var canvasComponents = enemy.GetComponentsInChildren<Canvas>(true);
+
+        // Enable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = show;
+
+        // Enable colliders:
+        foreach (var component in colliderComponents)
+            component.enabled = show;
+
+        // Enable canvas':
+        foreach (var component in canvasComponents)
+            component.enabled = show;
+
+        Debug.Log("Show card " + card + " show " + show + " local " + info.sender.IsLocal + " info " + info);
+    }
 
     //void FixedUpdate() {
     //    float moveHorizontal = Input.GetAxis("Horizontal");
