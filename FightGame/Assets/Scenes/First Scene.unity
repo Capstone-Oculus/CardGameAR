@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -145,14 +145,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed by
-    Humanoid clips.\n\tTransform 'Character1_Hips'\n\tTransform 'Character1_RightFoot'\n\tTransform
-    'Character1_LeftHandThumb3'\n\tTransform 'Character1_LeftFoot'\n\tTransform 'Character1_RightHandThumb1'\n\tTransform
-    'Character1_LeftHandIndex1'\n\tTransform 'Character1_LeftHandRing3'\n\tTransform
-    'Character1_RightHandRing2'\n\tTransform 'Character1_RightHandPinky3'\n\tTransform
-    'Character1_RightHand'\n\tand more ...\n\tFrom animation clip 'Idle'\n\tFrom animation
-    clip 'Hikick'\n\tFrom animation clip 'DamageDown'\n\tFrom animation clip 'Run'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -11190,6 +11183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5f5d31e1d804eb3adcb5e27e5ff7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenu: Main Menu
   p1Health: {fileID: 1359237798}
   p2Health: {fileID: 532214239}
   p1Wins: {fileID: 424135492}

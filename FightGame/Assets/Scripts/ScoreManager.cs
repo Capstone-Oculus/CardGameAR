@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
+    public string mainMenu;
 
     private GameObject enemy = null;
     private GameObject me = null;
@@ -22,6 +25,8 @@ public class ScoreManager : MonoBehaviour
     public Text countDownText = null;
     private bool inCountDown = false;
     private double countDownStartTime = 0;
+
+    private bool iLost = false;
 
     private Dictionary<int, bool> seen = new Dictionary<int, bool>();
 
@@ -62,7 +67,7 @@ public class ScoreManager : MonoBehaviour
 
     private void attack(GameObject player)
     {
-        foreach (Transform child in player.transform) 
+        foreach (Transform child in player.transform)
         {
             child.gameObject.GetComponent<Animator>().Play("attack");
         }
@@ -74,6 +79,7 @@ public class ScoreManager : MonoBehaviour
         {
             return;
         }
+
 
         //enemy.transform.
 
@@ -104,13 +110,13 @@ public class ScoreManager : MonoBehaviour
         var enemeyHealth = PhotonNetwork.isMasterClient ? p2Health : p1Health;
         var myWin = PhotonNetwork.isMasterClient ? p1Wins : p2Wins;
         var enemyWin = PhotonNetwork.isMasterClient ? p2Wins : p1Wins;
-        var iLost = enemyVal > myVal;
+        iLost = enemyVal > myVal;
         if (iLost)
         {
             Debug.Log("You are looser!");
-            myHealth.health--;
             attack(enemy);
             kill(me);
+            myHealth.health--;
             if (myHealth.health == 0)
             {
                 gameOver = true;
@@ -131,14 +137,7 @@ public class ScoreManager : MonoBehaviour
         if (gameOver)
         {
             Debug.Log("game is over " + iLost + " win " + enemyWin + " my win " + myWin);
-            if (iLost)
-            {
-                enemyWin.SetActive(true);
-            }
-            else
-            {
-                myWin.SetActive(true);
-            }
+            countDownStartTime = Time.realtimeSinceStartup;
         }
         else
         {
@@ -151,41 +150,72 @@ public class ScoreManager : MonoBehaviour
 
     }
 
+
     public void Update()
     {
         if (enemy != null && me != null)
         {
             //me.transform.localPosition = new Vector3(0, -1, 2);
             //me.transform.localRotation = Quaternion.Euler(180, 0, 0);
-            enemy.transform.localPosition = new Vector3(0, -1, 2);
-            enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
+            //enemy.transform.localPosition = new Vector3(0, -1, 2);
+            //enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
+            enemy.transform.position = me.transform.position + me.transform.forward * 2;
+            enemy.transform.LookAt(me.transform);
+
 
             //var rotationSpeed = 5.0; //degrees per second
             //enemy.transform.RotateAround(me.transform.position, new Vector3(0, 1, 0), (float)rotationSpeed * Time.deltaTime);
-            enemy.transform.LookAt(me.transform);
+            //enemy.transform.LookAt(me.transform);
 
             //var enemyRotation = Quaternion.LookRotation(me.transform.position - enemy.transform.position);
             //enemy.transform.rotation = Quaternion.Lerp(enemy.transform.rotation, enemyRotation, 1);
+        }
+        double timeNow = Time.realtimeSinceStartup;
+        var myWin = PhotonNetwork.isMasterClient ? p1Wins : p2Wins;
+        var enemyWin = PhotonNetwork.isMasterClient ? p2Wins : p1Wins;
+
+        if (gameOver)
+        {
+            countDownText.text = "";
+            countDownObj.SetActive(false);
+            inCountDown = false;
+
+            if (timeNow - countDownStartTime < 6)
+            {
+                if (iLost)
+                {
+                    enemyWin.SetActive(true);
+                }
+                else
+                {
+                    myWin.SetActive(true);
+                }
+            }
+            else
+            {
+                SceneManager.LoadScene(mainMenu);
+                //PhotonNetwork.LeaveRoom();
+            }
+            return;
         }
 
         if (!inCountDown)
         {
             return;
         }
-        double timeNow = Time.realtimeSinceStartup;
-        if (timeNow - countDownStartTime < 3)
+        if (timeNow - countDownStartTime < 4)
         {
             // do nothing.
         }
-        else if (timeNow - countDownStartTime < 4)
+        else if (timeNow - countDownStartTime < 5)
         {
             countDownText.text = "3";
         }
-        else if (timeNow - countDownStartTime < 5)
+        else if (timeNow - countDownStartTime < 6)
         {
             countDownText.text = "2";
         }
-        else if (timeNow - countDownStartTime < 6)
+        else if (timeNow - countDownStartTime < 7)
         {
             countDownText.text = "1";
         }
