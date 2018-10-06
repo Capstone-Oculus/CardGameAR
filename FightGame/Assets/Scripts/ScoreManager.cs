@@ -80,6 +80,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
+
         //enemy.transform.
 
         //transform.localPosition = new Vector3(0, -1, 2);
@@ -156,12 +157,15 @@ public class ScoreManager : MonoBehaviour
         {
             //me.transform.localPosition = new Vector3(0, -1, 2);
             //me.transform.localRotation = Quaternion.Euler(180, 0, 0);
-            enemy.transform.localPosition = new Vector3(0, -1, 2);
-            enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
+            //enemy.transform.localPosition = new Vector3(0, -1, 2);
+            //enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
+            enemy.transform.position = me.transform.position + me.transform.forward * 2;
+            enemy.transform.LookAt(me.transform);
+
 
             //var rotationSpeed = 5.0; //degrees per second
             //enemy.transform.RotateAround(me.transform.position, new Vector3(0, 1, 0), (float)rotationSpeed * Time.deltaTime);
-            enemy.transform.LookAt(me.transform);
+            //enemy.transform.LookAt(me.transform);
 
             //var enemyRotation = Quaternion.LookRotation(me.transform.position - enemy.transform.position);
             //enemy.transform.rotation = Quaternion.Lerp(enemy.transform.rotation, enemyRotation, 1);
