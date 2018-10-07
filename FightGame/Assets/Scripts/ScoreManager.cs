@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
     private GameObject enemy = null;
     private GameObject me = null;
 
+    public Text p1 = null;
+    public Text p2 = null;
+
     public Health p1Health = null;
     public Health p2Health = null;
 
@@ -35,6 +38,8 @@ public class ScoreManager : MonoBehaviour
         p2Wins.SetActive(false);
         p1Wins.SetActive(false);
         countDownObj.SetActive(false);
+        p1.text = PhotonNetwork.isMasterClient ? "You" : "Opponent";
+        p2.text = PhotonNetwork.isMasterClient ? "Opponent" : "You";
     }
 
     public void setMe(GameObject me)
@@ -101,7 +106,6 @@ public class ScoreManager : MonoBehaviour
         iLost = enemyVal > myVal;
         if (iLost)
         {
-            Debug.Log("You are looser!");
             attack(enemy);
             kill(me);
             myHealth.health--;
@@ -112,7 +116,6 @@ public class ScoreManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You are winner!");
             kill(enemy);
             attack(me);
             enemeyHealth.health--;
