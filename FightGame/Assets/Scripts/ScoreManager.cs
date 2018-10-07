@@ -203,21 +203,25 @@ public class ScoreManager : MonoBehaviour
         {
             return;
         }
-        if (timeNow - countDownStartTime < 4)
+        var delta = timeNow - countDownStartTime;
+        if (delta < 4)
         {
             // do nothing.
         }
-        else if (timeNow - countDownStartTime < 5)
+        else if (delta < 5)
         {
-            countDownText.text = "3";
+            countDownText.fontSize = fontSize(delta - 4);
+            countDownText.text = "Ready?";
         }
-        else if (timeNow - countDownStartTime < 6)
+        else if (delta < 6)
         {
-            countDownText.text = "2";
+            countDownText.fontSize = fontSize(delta - 5);
+            countDownText.text = "Set...";
         }
-        else if (timeNow - countDownStartTime < 7)
+        else if (delta < 7)
         {
-            countDownText.text = "1";
+            countDownText.fontSize = fontSize(delta - 6);
+            countDownText.text = "Go!";
         }
         else
         {
@@ -225,6 +229,10 @@ public class ScoreManager : MonoBehaviour
             countDownObj.SetActive(false);
             inCountDown = false;
         }
+    }
+
+    int fontSize(double time) {
+        return (int)(200 * time * time);
     }
 
 }
