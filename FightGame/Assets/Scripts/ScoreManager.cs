@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -23,6 +22,7 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject countDownObj = null;
     public Text countDownText = null;
+    public Text roundText = null;
     private bool inCountDown = false;
     private double countDownStartTime = 0;
 
@@ -32,9 +32,6 @@ public class ScoreManager : MonoBehaviour
 
     public void Start()
     {
-        //p1Health = GameObject.Find("Player1").GetComponent<Health>();
-        //p2Health = GameObject.Find("Player2").GetComponent<Health>();
-
         p2Wins.SetActive(false);
         p1Wins.SetActive(false);
         countDownObj.SetActive(false);
@@ -79,15 +76,6 @@ public class ScoreManager : MonoBehaviour
         {
             return;
         }
-
-
-        //enemy.transform.
-
-        //transform.localPosition = new Vector3(0, -1, 2);
-        //transform.localRotation = Quaternion.Euler(180, 0, 0);
-        //enemy.transform.localPosition = new Vector3(0, -1, 2);
-        //enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
-
 
         int enemyVal = enemy.GetComponent<Card>().value;
         int myVal = me.GetComponent<Card>().value;
@@ -145,7 +133,6 @@ public class ScoreManager : MonoBehaviour
             inCountDown = true;
             countDownObj.SetActive(true);
             countDownStartTime = Time.realtimeSinceStartup;
-            Debug.Log("next round is round #" + round);
         }
 
     }
@@ -204,28 +191,29 @@ public class ScoreManager : MonoBehaviour
             return;
         }
         var delta = timeNow - countDownStartTime;
-        if (delta < 4)
+        if (delta < 2)
         {
             // do nothing.
+        }
+        else if (delta < 3)
+        {
+            countDownText.fontSize = fontSize(delta - 2);
+            countDownText.text = "Ready?";
+        }
+        else if (delta < 4)
+        {
+            countDownText.fontSize = fontSize(delta - 3);
+            countDownText.text = "Set...";
         }
         else if (delta < 5)
         {
             countDownText.fontSize = fontSize(delta - 4);
-            countDownText.text = "Ready?";
-        }
-        else if (delta < 6)
-        {
-            countDownText.fontSize = fontSize(delta - 5);
-            countDownText.text = "Set...";
-        }
-        else if (delta < 7)
-        {
-            countDownText.fontSize = fontSize(delta - 6);
             countDownText.text = "Go!";
         }
         else
         {
             countDownText.text = "";
+            roundText.text = "Round " + round.ToString();
             countDownObj.SetActive(false);
             inCountDown = false;
         }
