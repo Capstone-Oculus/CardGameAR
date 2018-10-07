@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -682,7 +682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11467570, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Text
-      value: CardMastAR
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11488040, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: changeMusicOnStart
@@ -694,11 +694,11 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 2546d2de310fab24ca6bd04ae2f56447, type: 3}
     - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Color.r
-      value: 0.375
+      value: 0.3764706
       objectReference: {fileID: 0}
     - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Color.g
-      value: 0.79310364
+      value: 0.7921569
       objectReference: {fileID: 0}
     - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Color.b
@@ -707,7 +707,7 @@ Prefab:
     - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9a32a6cc2cb803443983d45d4a513506,
+      objectReference: {fileID: 21300000, guid: 1f1d5baae1d26404a8a639a07e5c7766,
         type: 3}
     - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
       propertyPath: m_Type
@@ -898,6 +898,52 @@ Prefab:
       propertyPath: m_UiScaleMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11467570, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154452, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114647526281953390, guid: 45616935e4fe10f48b62da1347801a16,
+        type: 2}
+      propertyPath: flexibleUIData
+      value: 
+      objectReference: {fileID: 11400000, guid: 448a8bcccb6c4a9499413d47af705f17,
+        type: 2}
+    - target: {fileID: 11400818, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418426, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418426, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418426, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22224648, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490476, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22461148, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.775
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45616935e4fe10f48b62da1347801a16, type: 2}
   m_IsPrefabAsset: 0
@@ -946,6 +992,74 @@ RectTransform:
   m_AnchoredPosition: {x: 1398, y: 412}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1301789504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301789505}
+  - component: {fileID: 1301789507}
+  - component: {fileID: 1301789506}
+  m_Layer: 5
+  m_Name: RawImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1301789505
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301789504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2124747930}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1301789506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301789504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: c5e1e3320da6744d3902dc19bd11ae0b, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1301789507
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301789504}
+  m_CullTransparentMesh: 0
 --- !u!224 &1450911580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22434976, guid: 45616935e4fe10f48b62da1347801a16,
@@ -1092,3 +1206,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!224 &2124747930 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 22461148, guid: 45616935e4fe10f48b62da1347801a16,
+    type: 2}
+  m_PrefabInternal: {fileID: 1186407860}
