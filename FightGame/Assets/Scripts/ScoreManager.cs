@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject p2Wins = null;
 
     public AudioSource youwin;
-
+    public AudioSource youlose;
 
     public GameObject usedCard = null;
     public GameObject enemyUsedCard = null;
@@ -194,13 +194,13 @@ public class ScoreManager : MonoBehaviour
             {
                 if (iLost)
                 {
-                    //enemyWin.SetActive(true);
-                    p2Wins.SetActive(true); // added this!! have to check if this works
+                    p2Wins.SetActive(true);
+                    youwin.Play();
                 }
                 else
                 {
-                    //myWin.SetActive(true);
-                    p1Wins.SetActive(true); // added this!! have to check if this works
+                    p1Wins.SetActive(true);
+                    youlose.Play();
                 }
             }
             else

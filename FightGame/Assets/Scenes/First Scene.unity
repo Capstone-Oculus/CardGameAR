@@ -12578,6 +12578,8 @@ MonoBehaviour:
   p2Health: {fileID: 532214239}
   p1Wins: {fileID: 424135492}
   p2Wins: {fileID: 813519744}
+  youwin: {fileID: 654442254}
+  youlose: {fileID: 1357168806}
   usedCard: {fileID: 183490779}
   enemyUsedCard: {fileID: 741423241}
   countDownObj: {fileID: 1406939583}
