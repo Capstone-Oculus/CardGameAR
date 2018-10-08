@@ -17,10 +17,11 @@ public class ScoreManager : MonoBehaviour
     public Health p1Health = null;
     public Health p2Health = null;
 
-    public GameObject p1Wins = null; // or just p1Wins;
-    public GameObject p2Wins = null; // or just p2Wins;
+    public GameObject p1Wins = null;
+    public GameObject p2Wins = null;
 
-    public GameObject usedCard = null; // or just usedCard;
+    public GameObject usedCard = null;
+    public GameObject enemyUsedCard = null;
     private double usedCardStartTime = 0;
 
     private bool gameOver = false;
@@ -90,7 +91,8 @@ public class ScoreManager : MonoBehaviour
         if (seen.ContainsKey(enemyVal))
         {
             //Debug.Log("enemy previously seen");
-            usedCard.SetActive(true); 
+            //usedCard.SetActive(true); 
+            enemyUsedCard.SetActive(true);
             usedCardStartTime = Time.realtimeSinceStartup;
             return;
 
@@ -151,6 +153,7 @@ public class ScoreManager : MonoBehaviour
     public void Update()
     {
         if (Time.realtimeSinceStartup - usedCardStartTime > 2) {
+            enemyUsedCard.SetActive(false);
             usedCard.SetActive(false);
         } 
         if (enemy != null && me != null)
