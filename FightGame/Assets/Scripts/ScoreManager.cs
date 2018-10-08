@@ -66,8 +66,6 @@ public class ScoreManager : MonoBehaviour
     {
         foreach (Transform child in player.transform)
         {
-            child.gameObject.GetComponent<Animator>().Play("walk");
-            child.gameObject.GetComponent<Animator>().Play("attack");
             child.gameObject.GetComponent<Animator>().Play("death");
         }
     }
@@ -76,8 +74,6 @@ public class ScoreManager : MonoBehaviour
     {
         foreach (Transform child in player.transform)
         {
-            child.gameObject.GetComponent<Animator>().Play("walk");
-            child.gameObject.GetComponent<Animator>().Play("attack");
             child.gameObject.GetComponent<Animator>().Play("attack");
         }
     }
