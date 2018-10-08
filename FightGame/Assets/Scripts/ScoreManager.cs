@@ -20,6 +20,9 @@ public class ScoreManager : MonoBehaviour
     public GameObject p1Wins = null;
     public GameObject p2Wins = null;
 
+    public AudioSource youwin;
+
+
     public GameObject usedCard = null;
     public GameObject enemyUsedCard = null;
     private double usedCardStartTime = 0;
