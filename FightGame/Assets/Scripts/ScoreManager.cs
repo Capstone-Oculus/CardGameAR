@@ -17,8 +17,10 @@ public class ScoreManager : MonoBehaviour
     public Health p1Health = null;
     public Health p2Health = null;
 
-    public GameObject p1Wins = null;
-    public GameObject p2Wins = null;
+    public GameObject p1Wins = null; // or just p1Wins;
+    public GameObject p2Wins = null; // or just p2Wins;
+
+    public GameObject usedCard = null; // or just usedCard;
 
     private bool gameOver = false;
     private int round = 1;
@@ -87,12 +89,14 @@ public class ScoreManager : MonoBehaviour
         if (seen.ContainsKey(enemyVal))
         {
             Debug.Log("enemy previously seen");
+            usedCard.SetActive(true); // added this but have to check if this works
             return;
 
         }
         if (seen.ContainsKey(myVal))
         {
             Debug.Log("I have been previously seen");
+            usedCard.SetActive(true); // added this but have to check if this works
             return;
         }
         seen.Add(enemyVal, true);
@@ -175,10 +179,12 @@ public class ScoreManager : MonoBehaviour
                 if (iLost)
                 {
                     enemyWin.SetActive(true);
+                    p2Wins.SetActive(true); // added this!! have to check if this works
                 }
                 else
                 {
                     myWin.SetActive(true);
+                    p1Wins.SetActive(true); // added this!! have to check if this works
                 }
             }
             else
