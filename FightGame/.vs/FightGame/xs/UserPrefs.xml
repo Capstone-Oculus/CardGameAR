@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs">
     <Files>
       <File FileName="Assets/Scripts/Trackables.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="89" Column="48" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="75" Column="54" />
+      <File FileName="Assets/Game Jam Template/Scripts/Menu/PhotonLevel.cs" Line="20" Column="1" />
+      <File FileName="Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" Line="1213" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
