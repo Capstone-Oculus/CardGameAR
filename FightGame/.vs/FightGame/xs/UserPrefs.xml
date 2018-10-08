@@ -3,10 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Trackables.cs" Line="1" Column="1" />
-      <File FileName="Assets/Vuforia/Scripts/DefaultTrackableEventHandler.cs" Line="57" Column="34" />
-      <File FileName="Assets/Scripts/Card.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="144" Column="21" />
-      <File FileName="Assets/Scripts/PhotonConnect.cs" Line="54" Column="1" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="89" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
