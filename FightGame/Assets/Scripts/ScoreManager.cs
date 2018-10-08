@@ -175,10 +175,12 @@ public class ScoreManager : MonoBehaviour
                 if (iLost)
                 {
                     enemyWin.SetActive(true);
+                    p2Wins.SetActive(true); // added this!! have to check if this works
                 }
                 else
                 {
                     myWin.SetActive(true);
+                    p1Wins.SetActive(true); // added this!! have to check if this works
                 }
             }
             else
