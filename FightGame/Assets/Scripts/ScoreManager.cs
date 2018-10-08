@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject p2Wins = null; // or just p2Wins;
 
     public GameObject usedCard = null; // or just usedCard;
+    private double usedCardStartTime = 0;
 
     private bool gameOver = false;
     private int round = 1;
@@ -88,15 +89,17 @@ public class ScoreManager : MonoBehaviour
         int myVal = me.GetComponent<Card>().value;
         if (seen.ContainsKey(enemyVal))
         {
-            Debug.Log("enemy previously seen");
-            usedCard.SetActive(true); // added this but have to check if this works
+            //Debug.Log("enemy previously seen");
+            usedCard.SetActive(true); 
+            usedCardStartTime = Time.realtimeSinceStartup;
             return;
 
         }
         if (seen.ContainsKey(myVal))
         {
-            Debug.Log("I have been previously seen");
-            usedCard.SetActive(true); // added this but have to check if this works
+            //Debug.Log("I have been previously seen");
+            usedCard.SetActive(true);
+            usedCardStartTime = Time.realtimeSinceStartup;
             return;
         }
         seen.Add(enemyVal, true);
@@ -147,6 +150,9 @@ public class ScoreManager : MonoBehaviour
 
     public void Update()
     {
+        if (Time.realtimeSinceStartup - usedCardStartTime > 2) {
+            usedCard.SetActive(false);
+        } 
         if (enemy != null && me != null)
         {
             //me.transform.localPosition = new Vector3(0, -1, 2);
@@ -165,8 +171,8 @@ public class ScoreManager : MonoBehaviour
             //enemy.transform.rotation = Quaternion.Lerp(enemy.transform.rotation, enemyRotation, 1);
         }
         double timeNow = Time.realtimeSinceStartup;
-        var myWin = PhotonNetwork.isMasterClient ? p1Wins : p2Wins;
-        var enemyWin = PhotonNetwork.isMasterClient ? p2Wins : p1Wins;
+        //var myWin = PhotonNetwork.isMasterClient ? p1Wins : p2Wins;
+        //var enemyWin = PhotonNetwork.isMasterClient ? p2Wins : p1Wins;
 
         if (gameOver)
         {
@@ -178,12 +184,12 @@ public class ScoreManager : MonoBehaviour
             {
                 if (iLost)
                 {
-                    enemyWin.SetActive(true);
+                    //enemyWin.SetActive(true);
                     p2Wins.SetActive(true); // added this!! have to check if this works
                 }
                 else
                 {
-                    myWin.SetActive(true);
+                    //myWin.SetActive(true);
                     p1Wins.SetActive(true); // added this!! have to check if this works
                 }
             }
