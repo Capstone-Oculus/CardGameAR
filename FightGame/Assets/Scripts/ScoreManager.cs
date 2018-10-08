@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public string mainMenu;
+    public string endMenu;
 
     private GameObject enemy = null;
     private GameObject me = null;
@@ -202,7 +203,7 @@ public class ScoreManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(mainMenu);
+                SceneManager.LoadScene(endMenu);
                 //PhotonNetwork.LeaveRoom();
             }
             return;
