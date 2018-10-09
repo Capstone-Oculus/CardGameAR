@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102381937280301320
+--- !u!1102 &1102534235530010942
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -103,7 +103,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: death
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -133,14 +133,14 @@ AnimatorStateMachine:
     m_State: {fileID: 1102183049560243090}
     m_Position: {x: 418.12506, y: -66.30206, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102381937280301320}
-    m_Position: {x: 420, y: 12, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 1102598410273532808}
     m_Position: {x: 420, y: 84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102166579482056834}
     m_Position: {x: 420, y: 144, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1102534235530010942}
+    m_Position: {x: 432, y: 12, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
