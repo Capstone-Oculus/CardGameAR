@@ -124,10 +124,7 @@ public class StartOptions : MonoBehaviour {
         //Load the selected scene, by scene index number in build settings
         //SceneManager.LoadScene(sceneToStart);
     
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("End Menu"))
-        {
-            level.loadScene("Main Menu");
-        }
+ 
         if (PhotonNetwork.isMasterClient) {
             level.loadScene("First Scene");
         }
@@ -138,7 +135,8 @@ public class StartOptions : MonoBehaviour {
     public void StartValerie()
     {
    
-            SceneManager.LoadScene("Main Menu");
+          
+        SceneManager.LoadScene("Main Menu");
 
     }
 

@@ -1,15 +1,12 @@
 ﻿<Properties StartupConfiguration="{65122EE7-0589-A035-854A-711851485D75}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Game Jam Template/Scripts/Menu/PhotonLevel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="203" Column="14" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/StartOptions.cs" Line="135" Column="3" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/MenuSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/SetAudioLevels.cs" Line="1" Column="1" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/MenuObject.cs" Line="1" Column="1" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/DontDestroy.cs" Line="15" Column="1" />
-      <File FileName="Assets/Game Jam Template/Scripts/Menu/PhotonLevel.cs" Line="20" Column="1" />
+      <File FileName="Assets/Game Jam Template/Scripts/Menu/StartOptions.cs" Line="27" Column="134" />
+      <File FileName="Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonViewInspector.cs" Line="273" Column="1" />
+      <File FileName="Assets/Game Jam Template/Scripts/Menu/PhotonLevel.cs" Line="20" Column="3" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="37" Column="66" />
+      <File FileName="Assets/Scripts/ScoreManager.cs" Line="235" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
