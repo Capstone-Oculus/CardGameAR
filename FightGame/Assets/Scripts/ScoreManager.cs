@@ -27,6 +27,8 @@ public class ScoreManager : MonoBehaviour
     public AudioSource Round3;
     public AudioSource Round4;
     public AudioSource Round5;
+    public AudioSource Blow;
+    public AudioSource Death;
 
     public GameObject usedCard = null;
     public GameObject enemyUsedCard = null;
@@ -82,6 +84,7 @@ public class ScoreManager : MonoBehaviour
         {
             child.gameObject.GetComponent<Animator>().SetBool("isDead", true);
             child.gameObject.GetComponent<Animator>().Play("attack");
+            Death.Play();
         }
     }
 
@@ -90,6 +93,7 @@ public class ScoreManager : MonoBehaviour
         foreach (Transform child in player.transform)
         {
             child.gameObject.GetComponent<Animator>().Play("attack");
+            Blow.Play();
         }
     }
 
