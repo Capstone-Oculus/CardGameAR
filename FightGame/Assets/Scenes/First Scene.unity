@@ -12943,7 +12943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5f5d31e1d804eb3adcb5e27e5ff7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: Main Menu
+  mainMenu: 
+  endMenu: End Menu
   p1: {fileID: 1568206594}
   p2: {fileID: 215880881}
   p1Health: {fileID: 1359237798}
