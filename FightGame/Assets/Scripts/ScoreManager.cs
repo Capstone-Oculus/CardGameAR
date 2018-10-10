@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     public AudioSource youwin;
     public AudioSource youlose;
     public AudioSource Blow;
+    public AudioSource Death;
     public AudioSource Round1;
     public AudioSource Round2;
     public AudioSource Round3;
@@ -82,6 +83,7 @@ public class ScoreManager : MonoBehaviour
         foreach (Transform child in player.transform)
         {
             child.gameObject.GetComponent<Animator>().Play("death");
+            Death.Play();
         }
     }
 
