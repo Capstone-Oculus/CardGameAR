@@ -22,6 +22,11 @@ public class ScoreManager : MonoBehaviour
 
     public AudioSource youwin;
     public AudioSource youlose;
+    public AudioSource Round1;
+    public AudioSource Round2;
+    public AudioSource Round3;
+    public AudioSource Round4;
+    public AudioSource Round5;
 
     public GameObject usedCard = null;
     public GameObject enemyUsedCard = null;
@@ -47,6 +52,10 @@ public class ScoreManager : MonoBehaviour
         countDownObj.SetActive(false);
         p1.text = PhotonNetwork.isMasterClient ? "You" : "Opponent";
         p2.text = PhotonNetwork.isMasterClient ? "Opponent" : "You";
+        if (round == 1)
+        {
+            Round1.Play();
+        }
     }
 
     public void setMe(GameObject me)
@@ -63,6 +72,7 @@ public class ScoreManager : MonoBehaviour
             enemy.transform.localPosition = new Vector3(0, -1, 2);
             enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
         }
+
         this.maybeChooseWinner();
     }
 
@@ -111,23 +121,6 @@ public class ScoreManager : MonoBehaviour
 
         int enemyVal = enemy.GetComponent<Card>().value;
         int myVal = me.GetComponent<Card>().value;
-        /*
-        if (seen.ContainsKey(enemyVal))
-        {
-            //Debug.Log("enemy previously seen");
-            //usedCard.SetActive(true); 
-            enemyUsedCard.SetActive(true);
-            usedCardStartTime = Time.realtimeSinceStartup;
-            return;
-
-        }
-        if (seen.ContainsKey(myVal))
-        {
-            //Debug.Log("I have been previously seen");
-            usedCard.SetActive(true);
-            usedCardStartTime = Time.realtimeSinceStartup;
-            return;
-        }*/
         seen.Add(enemyVal, round);
         seen.Add(myVal, round);
         Debug.Log("Enemy Value: " + enemyVal + " Val: " + myVal + " ");
@@ -191,10 +184,6 @@ public class ScoreManager : MonoBehaviour
         }
         if (enemy != null && me != null)
         {
-            //me.transform.localPosition = new Vector3(0, -1, 2);
-            //me.transform.localRotation = Quaternion.Euler(180, 0, 0);
-            //enemy.transform.localPosition = new Vector3(0, -1, 2);
-            //enemy.transform.localRotation = Quaternion.Euler(180, 0, 0);
             enemy.transform.position = me.transform.position + me.transform.forward * 2;
             enemy.transform.LookAt(me.transform);
 
@@ -207,8 +196,6 @@ public class ScoreManager : MonoBehaviour
             //enemy.transform.rotation = Quaternion.Lerp(enemy.transform.rotation, enemyRotation, 1);
         }
         double timeNow = Time.realtimeSinceStartup;
-        //var myWin = PhotonNetwork.isMasterClient ? p1Wins : p2Wins;
-        //var enemyWin = PhotonNetwork.isMasterClient ? p2Wins : p1Wins;
 
         if (gameOver)
         {
@@ -221,12 +208,10 @@ public class ScoreManager : MonoBehaviour
                 if (iLost)
                 {
                     p2Wins.SetActive(true);
-                    //youlose.Play();
                 }
                 else
                 {
                     p1Wins.SetActive(true);
-                    //youwin.Play();
                 }
             }
             else
@@ -265,6 +250,15 @@ public class ScoreManager : MonoBehaviour
         {
             countDownText.text = "";
             round++;
+            if (round == 2) {
+                Round2.Play();
+            } else if (round == 3) {
+                Round3.Play();
+            } else if (round == 4) {
+                Round4.Play();
+            } else if (round == 5) {
+                Round5.Play();
+            }
             roundText.text = "Round " + round.ToString();
             countDownObj.SetActive(false);
             inCountDown = false;
