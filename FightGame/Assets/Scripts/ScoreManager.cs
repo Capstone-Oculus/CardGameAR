@@ -208,7 +208,7 @@ public class ScoreManager : MonoBehaviour
             countDownObj.SetActive(false);
             inCountDown = false;
 
-            if (timeNow - countDownStartTime < 10)
+            if (timeNow - countDownStartTime < 6)
             {
                 if (iLost)
                 {
