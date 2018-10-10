@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour
 
     public AudioSource youwin;
     public AudioSource youlose;
+    public AudioSource Blow;
     public AudioSource Round1;
     public AudioSource Round2;
     public AudioSource Round3;
@@ -81,6 +82,7 @@ public class ScoreManager : MonoBehaviour
         foreach (Transform child in player.transform)
         {
             child.gameObject.GetComponent<Animator>().Play("death");
+            Blow.Play();
         }
     }
 
@@ -133,6 +135,7 @@ public class ScoreManager : MonoBehaviour
         if (iLost)
         {
             attack(enemy);
+            //Blow.Play();
             kill(me);
             myHealth.health--;
             if (myHealth.health == 0)
@@ -144,6 +147,7 @@ public class ScoreManager : MonoBehaviour
         {
             kill(enemy);
             attack(me);
+            //Blow.Play();
             enemeyHealth.health--;
             if (enemeyHealth.health == 0)
             {
