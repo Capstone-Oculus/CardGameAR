@@ -80,7 +80,8 @@ public class ScoreManager : MonoBehaviour
     {
         foreach (Transform child in player.transform)
         {
-            child.gameObject.GetComponent<Animator>().Play("death");
+            child.gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            child.gameObject.GetComponent<Animator>().Play("attack");
         }
     }
 
