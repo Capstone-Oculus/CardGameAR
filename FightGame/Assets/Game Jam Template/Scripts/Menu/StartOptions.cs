@@ -149,13 +149,13 @@ public class StartOptions : MonoBehaviour {
         StartCoroutine(FadeCanvasGroupAlpha(1f,0f, menuCanvasGroup));
 	}
 
-    public void StartValerie()
-    {
+    //public void StartValerie()
+    //{
 
 
-        SceneManager.LoadScene("Main Menu");
+    //    SceneManager.LoadScene("Main Menu");
 
-    }
+    //}
 
 
     public IEnumerator FadeCanvasGroupAlpha(float startAlpha, float endAlpha, CanvasGroup canvasGroupToFadeAlpha)

@@ -222,11 +222,11 @@ public class ScoreManager : MonoBehaviour
                     SceneManager.LoadScene(endMenu);
                 }
             }
-            //else
-            //{
-            //    SceneManager.LoadScene(endMenu);
-            //    //PhotonNetwork.LeaveRoom();
-            //}
+            else
+            {
+                SceneManager.LoadScene(endMenu);
+                //PhotonNetwork.LeaveRoom();
+            }
             return;
         }
 
