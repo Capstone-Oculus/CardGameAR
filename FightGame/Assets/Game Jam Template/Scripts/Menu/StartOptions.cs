@@ -16,6 +16,7 @@ public class StartOptions : MonoBehaviour {
     public Image fadeImage;                                             //Reference to image used to fade out before changing scenes
     public InputField roomName;
 
+
     public PhotonLevel level;
 
     [HideInInspector] public bool inMainMenu = true;					//If true, pause button disabled in main menu (Cancel in input manager, default escape key)
@@ -113,6 +114,7 @@ public class StartOptions : MonoBehaviour {
 
     public void LoadDelayed()
     {
+
         //Pause button now works if escape is pressed since we are no longer in Main menu.
         inMainMenu = false;
 
@@ -121,14 +123,26 @@ public class StartOptions : MonoBehaviour {
 
         //Load the selected scene, by scene index number in build settings
         //SceneManager.LoadScene(sceneToStart);
-        //SceneManager.
-        //SceneManager.Loa
+    
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("End Menu"))
+        {
+            level.loadScene("Main Menu");
+        }
         if (PhotonNetwork.isMasterClient) {
             level.loadScene("First Scene");
         }
-	}
+    
 
-	public void HideDelayed()
+    }
+
+    public void StartValerie()
+    {
+   
+            SceneManager.LoadScene("Main Menu");
+
+    }
+
+        public void HideDelayed()
 	{
 		//Hide the main menu UI element after fading out menu for start game in scene
 		showPanels.HideMenu();
