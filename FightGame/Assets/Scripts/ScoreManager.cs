@@ -21,6 +21,9 @@ public class ScoreManager : MonoBehaviour
     public GameObject p1Wins = null;
     public GameObject p2Wins = null;
 
+    public AudioSource youwin;
+    public AudioSource youlose;
+
     public GameObject usedCard = null;
     public GameObject enemyUsedCard = null;
     private double usedCardStartTime = 0;
@@ -36,7 +39,7 @@ public class ScoreManager : MonoBehaviour
 
     private bool iLost = false;
 
-    private Dictionary<int, bool> seen = new Dictionary<int, bool>();
+    private Dictionary<int, int> seen = new Dictionary<int, int>();
 
     public void Start()
     {
@@ -68,8 +71,6 @@ public class ScoreManager : MonoBehaviour
     {
         foreach (Transform child in player.transform)
         {
-            child.gameObject.GetComponent<Animator>().Play("walk");
-            child.gameObject.GetComponent<Animator>().Play("attack");
             child.gameObject.GetComponent<Animator>().Play("death");
         }
     }
@@ -78,14 +79,32 @@ public class ScoreManager : MonoBehaviour
     {
         foreach (Transform child in player.transform)
         {
-            child.gameObject.GetComponent<Animator>().Play("walk");
-            child.gameObject.GetComponent<Animator>().Play("attack");
             child.gameObject.GetComponent<Animator>().Play("attack");
         }
     }
 
     public void maybeChooseWinner()
     {
+        if (me != null)
+        {
+            if (seen.ContainsKey(me.GetComponent<Card>().value) && seen[me.GetComponent<Card>().value] != round)
+            {
+                usedCard.SetActive(true);
+                usedCardStartTime = Time.realtimeSinceStartup;
+                return;
+            }
+        }
+
+        if (enemy != null)
+        {
+            if (seen.ContainsKey(enemy.GetComponent<Card>().value) && seen[enemy.GetComponent<Card>().value] != round)
+            {
+                enemyUsedCard.SetActive(true);
+                usedCardStartTime = Time.realtimeSinceStartup;
+                return;
+            }
+        }
+
         if (enemy == null || me == null || gameOver)
         {
             return;
@@ -93,6 +112,7 @@ public class ScoreManager : MonoBehaviour
 
         int enemyVal = enemy.GetComponent<Card>().value;
         int myVal = me.GetComponent<Card>().value;
+        /*
         if (seen.ContainsKey(enemyVal))
         {
             //Debug.Log("enemy previously seen");
@@ -108,9 +128,9 @@ public class ScoreManager : MonoBehaviour
             usedCard.SetActive(true);
             usedCardStartTime = Time.realtimeSinceStartup;
             return;
-        }
-        seen.Add(enemyVal, true);
-        seen.Add(myVal, true);
+        }*/
+        seen.Add(enemyVal, round);
+        seen.Add(myVal, round);
         Debug.Log("Enemy Value: " + enemyVal + " Val: " + myVal + " ");
 
         var myHealth = PhotonNetwork.isMasterClient ? p1Health : p2Health;
@@ -143,10 +163,18 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("game is over " + iLost + " win " + enemyWin + " my win " + myWin);
             countDownStartTime = Time.realtimeSinceStartup;
+            if (iLost)
+            {
+                youlose.Play();
+            }
+            else
+            {
+                youwin.Play();
+            }
         }
         else
         {
-            round++;
+            //round++;
             inCountDown = true;
             countDownObj.SetActive(true);
             countDownStartTime = Time.realtimeSinceStartup;
@@ -157,10 +185,11 @@ public class ScoreManager : MonoBehaviour
 
     public void Update()
     {
-        if (Time.realtimeSinceStartup - usedCardStartTime > 2) {
+        if (Time.realtimeSinceStartup - usedCardStartTime > 2)
+        {
             enemyUsedCard.SetActive(false);
             usedCard.SetActive(false);
-        } 
+        }
         if (enemy != null && me != null)
         {
             //me.transform.localPosition = new Vector3(0, -1, 2);
@@ -188,17 +217,17 @@ public class ScoreManager : MonoBehaviour
             countDownObj.SetActive(false);
             inCountDown = false;
 
-            if (timeNow - countDownStartTime < 6)
+            if (timeNow - countDownStartTime < 10)
             {
                 if (iLost)
                 {
-                    //enemyWin.SetActive(true);
-                    p2Wins.SetActive(true); // added this!! have to check if this works
+                    p2Wins.SetActive(true);
+                    //youlose.Play();
                 }
                 else
                 {
-                    //myWin.SetActive(true);
-                    p1Wins.SetActive(true); // added this!! have to check if this works
+                    p1Wins.SetActive(true);
+                    //youwin.Play();
                 }
             }
             else
@@ -236,13 +265,15 @@ public class ScoreManager : MonoBehaviour
         else
         {
             countDownText.text = "";
+            round++;
             roundText.text = "Round " + round.ToString();
             countDownObj.SetActive(false);
             inCountDown = false;
         }
     }
 
-    int fontSize(double time) {
+    int fontSize(double time)
+    {
         return (int)(200 * time * time);
     }
 
