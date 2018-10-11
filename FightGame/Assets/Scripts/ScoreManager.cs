@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
 
     public AudioSource youwin;
     public AudioSource youlose;
+    public float delay;
     public AudioSource Round1;
     public AudioSource Round2;
     public AudioSource Round3;
@@ -100,6 +101,7 @@ public class ScoreManager : MonoBehaviour
 
     public void maybeChooseWinner()
     {
+        delay = 0.7f;
         if (me != null)
         {
             if (seen.ContainsKey(me.GetComponent<Card>().value) && seen[me.GetComponent<Card>().value] != round)
@@ -163,11 +165,11 @@ public class ScoreManager : MonoBehaviour
             countDownStartTime = Time.realtimeSinceStartup;
             if (iLost)
             {
-                youlose.Play();
+                youlose.PlayDelayed(delay);
             }
             else
             {
-                youwin.Play();
+                youwin.PlayDelayed(delay);
             }
         }
         else
