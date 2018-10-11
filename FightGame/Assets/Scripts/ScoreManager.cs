@@ -209,23 +209,20 @@ public class ScoreManager : MonoBehaviour
             countDownObj.SetActive(false);
             inCountDown = false;
 
-            if (timeNow - countDownStartTime < 6)
+            if (timeNow - countDownStartTime < 10)
             {
                 if (iLost)
                 {
                     p2Wins.SetActive(true);
-                    SceneManager.LoadScene(endMenu);
                 }
                 else
                 {
                     p1Wins.SetActive(true);
-                    SceneManager.LoadScene(endMenu);
                 }
             }
-            else
+            else if (PhotonNetwork.isMasterClient)
             {
                 SceneManager.LoadScene(endMenu);
-                //PhotonNetwork.LeaveRoom();
             }
             return;
         }
